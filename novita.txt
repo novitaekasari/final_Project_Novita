@@ -1,0 +1,39 @@
+ Library **
+
+READ AND WRITE "name_library" STRING 
+READ AND WRITE "isbn" STRING
+READ AND WRITE "borrow_name" STRING
+READ AND WRITE "book borrow" STRING
+
+// WRITE  a library object to store book information
+library = {}
+
+
+// Define function to add a book to the library
+function add_book(title, author, isbn):
+    book = {"title": title, "author": author, "isbn": isbn, "borrowed": false}
+    library[isbn] = book
+
+
+// Define function to borrow a book
+function borrow_book(isbn, borrower_name):
+    book = library[isbn]
+    if book["borrowed"] == true:
+        print("Book is already borrowed")
+    else:
+        book["borrowed"] = true
+        book["borrower"] = borrower_name
+        print("Book borrowed by " + borrower_name)
+
+
+// Define function to return a book
+function return_book(isbn):
+book = library[isbn]
+    if book["borrowed"] == false:
+        print("Book is not currently borrowed")
+    else:
+        book["borrowed"] = false
+        book.pop("borrower"one)
+        print("Book returned")
+
+
